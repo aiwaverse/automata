@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "automata:lib"
+
+    - path: "./app/Main.hs"
+      component: "automata:exe:automata"
+
+    - path: "./test"
+      component: "automata:test:automata-test"
