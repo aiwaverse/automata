@@ -23,13 +23,9 @@ source-repository head
 
 common common-options
   build-depends:       base ^>= 4.14.1.0
-                     , relude
-                     , text
                      , containers
+                     , text
                      , HUnit
-
-  mixins:              base hiding (Prelude)
-                     , relude (Relude as Prelude)
 
   ghc-options:         -Wall
                        -Wcompat
