@@ -16,7 +16,9 @@ test4 = TestCase $ assertEqual "b at q1" (Right stateQ1) (next automataT stateQ1
 test5 = TestCase $ assertEqual "c at q0" 
                                (Left "Failed by indeterminate transiction at state q0") 
                                (next automataT stateQ0 "c")
-tests = TestList [test1, test2, test3, test4, test5]
+
+test6 = TestCase $ assertEqual "q0 is initial" (Just stateQ0) (getInitial automataT)
+tests = TestList [test1, test2, test3, test4, test5, test6]
 
 main :: IO ()
 main = runTestTTAndExit tests
