@@ -39,7 +39,13 @@ next (AFD m) st c = case adjacentNames of
   Nothing -> Left $ "Failed by indeterminate transiction at state " <> name st
   Just s ->
     let nextState = Map.lookup s m
-    in  maybe (Left "This really shouldn't happen, check the Automata") Right nextState
+    in  maybe
+          (  Left
+          $  "A state name was referenced but it's not in the Automata,"
+          <> " this really shouldn't happen, check the Automata."
+          )
+          Right
+          nextState
   where adjacentNames = Map.lookup c (adjacentStates st)
 
 getInitial :: AFD -> AutomataState
