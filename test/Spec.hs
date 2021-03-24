@@ -35,9 +35,14 @@ test8 :: Test
 test8 = TestCase $ assertEqual "String \"aaa\" with automataT"
                                (Left "Rejected by not reacing a final state")
                                (validate automataT "aaa")
+test9 :: Test
+test9 = TestCase $ assertEqual "String \"aa\" with automataT"
+                               (Right True)
+                               (validate automataT "aa")
+                          
 
 tests :: Test
-tests = TestList [test1, test2, test3, test4, test5, test6, test7, test8]
+tests = TestList [test1, test2, test3, test4, test5, test6, test7, test8, test9]
 
 main :: IO ()
 main = runTestTTAndExit tests
