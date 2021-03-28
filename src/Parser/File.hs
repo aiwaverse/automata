@@ -1,11 +1,9 @@
-module Parser (unitParser, functionProgramParser, afdParser) where
+module Parser.File (unitParser, functionProgramParser, afdFileParse) where
 
 import Text.Megaparsec
 import Text.Megaparsec.Char ( string, alphaNumChar, char )
 import Data.Text (Text, pack)
 import Data.Void
-
-import Automata
 
 type Parser = Parsec Void Text
 
@@ -28,8 +26,8 @@ functionProgramParser = do
 
 -- | The parser that will HOPEFULLY create an AFD, currently returns a very ugly tuple
 -- Either the return type or the name will change, certainly
-afdParser :: Parser (Text, [Text], [Text], Text, [Text], [(Text, Text, Text)])
-afdParser = let unitBetweenCurly = between (char '{') (char '}') unitParser in
+afdFileParse :: Parser (Text, [Text], [Text], Text, [Text], [(Text, Text, Text)])
+afdFileParse = let unitBetweenCurly = between (char '{') (char '}') unitParser in
   do
   automataName <- some alphaNumChar
   _ <- string "=("
