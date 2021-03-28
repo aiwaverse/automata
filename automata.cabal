@@ -23,10 +23,6 @@ source-repository head
 
 common common-options
   build-depends:       base ^>= 4.14.1.0
-                     , containers
-                     , text
-                     , HUnit
-                     , megaparsec
 
   ghc-options:         -Wall
                        -Wcompat
@@ -67,6 +63,9 @@ library
   hs-source-dirs:      src
   exposed-modules:     Automata
                      , Parser
+  build-depends:       text
+                     , containers
+                     , megaparsec
 
 executable automata
   import:              common-options
@@ -83,6 +82,10 @@ test-suite automata-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       automata
+                     , Parser
+                     , text
+                     , HUnit
+                     , containers
   ghc-options:         -threaded
                        -rtsopts
                        -with-rtsopts=-N
