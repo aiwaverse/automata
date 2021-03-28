@@ -62,7 +62,7 @@ library
   import:              common-options
   hs-source-dirs:      src
   exposed-modules:     Automata
-                     , Parser
+                     , Parser.File
   build-depends:       text
                      , containers
                      , megaparsec
@@ -82,8 +82,6 @@ test-suite automata-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       automata
-                     , Parser
-                     , text
                      , HUnit
                      , containers
   ghc-options:         -threaded
