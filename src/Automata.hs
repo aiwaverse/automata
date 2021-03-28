@@ -33,7 +33,7 @@ data AutomataState = AState { name           :: T.Text
   deriving stock (Eq, Show)
 
 -- | an AFD is nothing more than a set of labels and states
-newtype AFD = AFD (Map.Map T.Text AutomataState)
+newtype AFD = AFD (Map.Map T.Text AutomataState) deriving stock Show
 
 -- | Given the automata, the current state @st and a text @c, returns the next state, if available
 next :: AFD -> AutomataState -> Char -> Either T.Text AutomataState
