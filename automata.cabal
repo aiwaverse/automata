@@ -62,7 +62,8 @@ library
   import:              common-options
   hs-source-dirs:      src
   exposed-modules:     Automata
-                     , Parser.File
+                     , FileParser
+                     , AFDCreator
   build-depends:       text
                      , containers
                      , megaparsec
@@ -72,6 +73,8 @@ executable automata
   hs-source-dirs:      app
   main-is:             Main.hs
   build-depends:       automata
+                     , text
+                     , megaparsec
   ghc-options:         -threaded
                        -rtsopts
                        -with-rtsopts=-N
